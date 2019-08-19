@@ -10,10 +10,10 @@ let level = 1;
 //load images
 
 const ground = new Image();                         //ground is equal to the ground image
-ground.src = "ground.png";
+ground.src = "img/ground.png";
 
 const foodImg = new Image();                        //food is equal to the food image
-foodImg.src = "food.png";
+foodImg.src = "img/food.png";
 
 //seconds counter
 
