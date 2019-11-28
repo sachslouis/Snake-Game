@@ -1,5 +1,5 @@
 const cvs = document.getElementById('snake');       //canvas is snake element
-const ctx = cvs.getContext('2d');                   //returns object that provides methods for drawing
+const context = cvs.getContext('2d');                   //returns object that provides methods for drawing
 
 //creat unit
 const box = 32;                                     //each box is equal to 32 px
@@ -80,15 +80,15 @@ function collision(head, array) {                 //collision function looks at 
 //draw everything to canvas
 
 function draw() {                                        //Draw
-    ctx.drawImage(ground, 0, 0);                          //call internal function to draw the ground picture at the top left orner
+    context.drawImage(ground, 0, 0);                          //call internal function to draw the ground picture at the top left orner
     for (let i = 0; i < snake.length; i++) {              //go over the snake array, making alternate yellow and black snake parts
-        ctx.fillStyle = (i % 2 == 0) ? "yellow" : "black";
-        ctx.fillRect(snake[i].x, snake[i].y, box, box);    //canvas method makes filled rectangle with with that color
-        ctx.strokeStyle = "red";
-        ctx.strokeRect(snake[i].x, snake[i].y, box, box);  //canvas method makes rectangle with border stroke of that color
+        context.fillStyle = (i % 2 == 0) ? "yellow" : "black";
+        context.fillRect(snake[i].x, snake[i].y, box, box);    //canvas method makes filled rectangle with with that color
+        context.strokeStyle = "red";
+        context.strokeRect(snake[i].x, snake[i].y, box, box);  //canvas method makes rectangle with border stroke of that color
     }
 
-    ctx.drawImage(foodImg, food.x, food.y);  //draw the food at the random x and y position gaiven
+    context.drawImage(foodImg, food.x, food.y);  //draw the food at the random x and y position gaiven
 
     //old head position
     snakeX = snake[0].x; //sets snake head position
@@ -129,11 +129,11 @@ function draw() {                                        //Draw
 
     snake.unshift(newHead);
 
-    ctx.fillStyle = "white";
-    ctx.font = "25px Helvetica one";
-    ctx.fillText("Score: " + score, 2 * box, 1.6 * box);  //fill in the score
-    ctx.fillText("Level: " + level, 14 * box, 1.6 * box);  //fill in the score
-    ctx.fillText("High Score: " + localStorage["highScore"], 7.5 * box, 1.6 * box);
+    context.fillStyle = "white";
+    context.font = "25px Helvetica one";
+    context.fillText("Score: " + score, 2 * box, 1.6 * box);  //fill in the score
+    context.fillText("Level: " + level, 14 * box, 1.6 * box);  //fill in the score
+    context.fillText("High Score: " + localStorage["highScore"], 7.5 * box, 1.6 * box);
 
 }
 
